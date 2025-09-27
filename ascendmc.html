@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AscendMC.pl</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.imgur.com/2yYayZk.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0f1e, #1e2a47);
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      padding: 20px;
+      background: rgba(0,0,0,0.6);
+    }
+    header h1 {
+      font-size: 3em;
+      color: #4db8ff;
+      margin: 0;
+    }
+    section {
+      padding: 40px 20px;
+    }
+    .countdown {
+      font-size: 2em;
+      margin-top: 10px;
+      color: #ffcc00;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      background: #4db8ff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #3399ff;
+    }
+    .socials a {
+      margin: 0 10px;
+      color: #fff;
+      font-size: 1.5em;
+      text-decoration: none;
+    }
+    footer {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      margin-top: 40px;
+    }
+    audio {
+      margin-top: 20px;
+    }
+    .trailer {
+      font-style: italic;
+      font-size: 1.2em;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+    .rules {
+      text-align: left;
+      max-width: 700px;
+      margin: auto;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .rules h3 {
+      color: #ff6666;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AscendMC.pl</h1>
+  <p>Oficjalna strona serwera Minecraft</p>
+</header>
+
+<section>
+  <h2>🎉 Start serwera</h2>
+  <p>Wielkie otwarcie: <b>2 stycznia 2026, godz. 18:00 (piątek)</b></p>
+  <div class="countdown" id="countdown"></div>
+</section>
+
+<section>
+  <h2>🗡 Tryby</h2>
+  <p>BedWars • Duels • KitPvP • TowerPvP • EarthSMP • Tryb fabularny</p>
+</section>
+
+<section>
+  <h2>📜 Regulamin</h2>
+  <div class="rules">
+    <h3>Podstawowe zasady:</h3>
+    <ul>
+      <li>Zakaz cheatów, bugowania i wykorzystywania exploitów.</li>
+      <li>Szanuj innych graczy i administrację.</li>
+      <li>Brak spamu i floodu na czacie.</li>
+      <li>Zakaz obrażania – kultura to podstawa.</li>
+      <li>Rekrutacja i konkursy odbywają się wyłącznie na oficjalnym Discordzie.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>🌌 Tryb fabularny – Teaser</h2>
+  <div class="trailer">
+    Na dawnych ziemiach, gdzie potęgi starożytnych cywilizacji spoczywają w ruinach, 
+    odradza się nowa era. Krainy będą się otwierać w kolejnych edycjach, 
+    a gracze odkryją ich tajemnice, walcząc o wpływy, zasoby i chwałę.  
+    To dopiero początek legendy AscendMC...
+  </div>
+</section>
+
+<section>
+  <h2>🛒 Sklep</h2>
+  <a href="#" class="btn">Sklep – już wkrótce!</a>
+</section>
+
+<section>
+  <h2>🔗 Social Media</h2>
+  <div class="socials">
+    <a href="https://www.youtube.com/@AscendMC-pAeS" target="_blank">📺 YouTube</a>
+    <a href="https://www.tiktok.com/@ascendmc_pl_en" target="_blank">🎵 TikTok</a>
+    <a href="https://discord.gg/6ZemU2gqbf" target="_blank">💬 Discord</a>
+  </div>
+</section>
+
+<section>
+  <h2>🎶 Motyw muzyczny</h2>
+  <audio controls autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Twoja przeglądarka nie wspiera odtwarzacza audio.
+  </audio>
+</section>
+
+<footer>
+  <p>&copy; 2025 AscendMC.pl – Oficjalna strona serwera Minecraft</p>
+</footer>
+
+<script>
+  // Odliczanie
+  const countdown = document.getElementById("countdown");
+  const targetDate = new Date("Jan 2, 2026 18:00:00").getTime();
+  const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      clearInterval(interval);
+      countdown.innerHTML = "🚀 Serwer już wystartował!";
+    } else {
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>
